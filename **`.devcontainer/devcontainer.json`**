@@ -1,0 +1,18 @@
+
+{
+ "name": "Purple Lab Mobile",
+ "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+ "features": {
+  "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+  "ghcr.io/devcontainers/features/go:1": { "version": "latest" },
+  "ghcr.io/devcontainers/features/rust:1": { "version": "latest" },
+  "ghcr.io/devcontainers/features/python:1": { "version": "3.12" }
+ },
+ "forwardPorts": [5601, 31337, 8443, 8080, 8888],
+ "portsAttributes": {
+  "5601": { "label": "Wazuh Dashboard (SIEM)", "onAutoForward": "notify" },
+  "31337": { "label": "Sliver C2 Server", "onAutoForward": "notify" }
+ },
+ "postCreateCommand": "bash /workspaces/purple-lab/setup.sh",
+ "remoteUser": "vscode"
+}
